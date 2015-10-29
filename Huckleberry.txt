@@ -1,0 +1,15 @@
+> var cur = db.data.find().sort({"State":1,"Temperature":-1});
+> var states=["California","Florida","New Mexico","Vermont"];
+> cur.forEach(function(doc)
+{
+if(doc.State==states[index])
+{
+print(doc.State);
+db.data.update(doc,{$set:{"month_high":true}});
+index=index+1;
+}
+});
+California
+Florida
+New Mexico
+Vermont
