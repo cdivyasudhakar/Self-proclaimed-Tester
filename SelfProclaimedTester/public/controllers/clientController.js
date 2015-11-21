@@ -49,6 +49,46 @@ app.config(['$routeProvider', function ($routeProvider) {
 	    	  templateUrl : 'clientHomePage',                            // This is for node understanding
 	    	  
 	      })
+	      .when('/profile', {
+	    	  
+	    	  templateUrl : 'partials/client_account'                            // This is for node understanding
+	    	  
+	      })
+	      .when('/newproject', {
+	    	  
+	    	  templateUrl : 'partials/type_test'                            // This is for node understanding
+	    	  
+	      })
+	      .when('/typeproduct', {
+	    	  
+	    	  templateUrl : 'partials/type_product'                            // This is for node understanding
+	    	  
+	      })
+	      .when('/typeplatform', {
+	    	  
+	    	  templateUrl : 'partials/type_platform'                            // This is for node understanding
+	    	  
+	      })
+	      .when('/typeplan', {
+	    	  
+	    	  templateUrl : 'partials/type_plan'                            // This is for node understanding
+	    	  
+	      })
+	      .when('/contactus', {
+	    	  
+	    	  templateUrl : 'partials/contact'                            // This is for node understanding
+	    	  
+	      })
+	      .when('/personal', {
+	    	  
+	    	  templateUrl : 'partials/personal'                            // This is for node understanding
+	    	  
+	      })
+	      .when('/account', {
+	    	  
+	    	  templateUrl : 'partials/client_account'                            // This is for node understanding
+	    	  
+	      })
 	      
 	      .otherwise({redirectTo: "/"});
 	}]);

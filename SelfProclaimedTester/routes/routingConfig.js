@@ -82,6 +82,17 @@ self.routeTable.push({
             response.render('partials/'+name);
         }
     });
+self.routeTable.push({
+        
+        requestType : 'get',
+        requestUrl : '/partials/:name',
+        callbackFunction : function (request, response) {
+       	 var name = request.params.name;
+       	
+            response.render('partials/'+name);
+        }
+    });
+
     
  
 }
