@@ -1,0 +1,60 @@
+	<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
+<link rel='stylesheet' href='.\stylesheets\style.css'/>
+</head>
+<title> Choose prefereneces </title>
+<script>
+
+function changecolor(i){
+//alert(i);
+
+//document.getElementById("function").style.border-color(green);
+
+if(i==1)
+{
+document.getElementById("function").style.borderColor="#A1D490";
+document.getElementById("usability").style.borderColor="#FFA500";
+}
+else
+{
+document.getElementById("function").style.borderColor="#FFA500";
+document.getElementById("usability").style.borderColor="#A1D490";
+}
+
+}
+
+
+
+</script>
+<body>
+	<% include NewProjectHeader%>
+<div class="container">
+ <div class="row"> 
+ <div class="main">
+ 
+ 
+<div class="text-center">
+
+<br><br><br>
+<h2> What types of test are you looking for?</h2>
+<br><br>
+<img src=".\images\function.png" class="circle" id="function" onclick="changecolor(1)">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src=".\images\usability.png" class="circle" id="usability" onclick="changecolor(2)">
+<br><br>
+<b>Functional Testing</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Usability Testing</b><br><br>
+<button type="button" class="btn btn-primary btn-md">Next </button>
+</div>
+ </div>
+</div>
+</div>
+
+</body>
+</html>
