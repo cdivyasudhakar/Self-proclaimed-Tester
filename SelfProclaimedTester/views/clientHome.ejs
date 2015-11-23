@@ -12,11 +12,11 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
         <script src = "https://code.angularjs.org/1.5.0-beta.1/angular-route.min.js"></script>
+        <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+         <script src = "../controllers/appRoute.js"></script>
         <script src = "../controllers/clientController.js"></script>
-        <script src = "../controllers/newTestController.js"></script>
-        <script src = "../controllers/clientDashboardController.js"></script>
-        <script src = "../controllers/listProjectsController.js"></script>
-         <script src = "../controllers/listTestersController.js"></script>
+        <script src = "../controllers/projectController.js"></script>
+        <script src = "../controllers/newProjectController.js"></script>
     </head>
     
     <body style = "background-color : #F0EBD5" ng-app = "selfProclaimedTester" ng-controller = "clientController">
@@ -28,31 +28,34 @@
       
   </div>
             
-</nav><br><br><br>
-        
-     <div class = "container">
-        
+</nav><br><br><br><br>
+        <div class = "container">
         <img  src="./images/bug.png" alt="Smiley face" width="60" height="60">
         <span style = "color : #2F4F4F; font-family: forte;font-size : 28px;">Self <span style = "color : #07b4fb">Proclaimed</span> Tester</span> 
        
          <ul class="nav navbar-nav navbar-right">
-        <li style = "font-size: 20px; font-color : white"><a style = "color : #2F4F4F" href = "#/contactus">Contact Us</a></li>
+        <li style = "font-size: 20px; font-color : white"><a style = "color : #2F4F4F" ui-sref = "contactus">Contact Us</a></li>
               
         </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li style = "font-size: 20px; font-color : white"><a style = "color : #2F4F4F" href = "#/profile">My Profile</a></li>
+        <li style = "font-size: 20px; font-color : white"><a style = "color : #2F4F4F" ui-sref = "profile">My Profile</a></li>
               
         </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li style = "font-size: 20px; font-color : white"><a style = "color : #2F4F4F" href = "#home">My Dashboard</a></li>
+        <li style = "font-size: 20px; font-color : white"><a style = "color : #2F4F4F" ui-sref = "home">My Dashboard</a></li>
               
         </ul>
+        </div>
+        
+     <div class = "container">
+        
+        
        
     </div>
         <hr>
-        <div class = "container">
-            
-            <div ng-view>
+        
+            <div class = "container"
+            <div ui-view>
             
             
             
@@ -79,7 +82,7 @@
             
             </tbody>
         </table> -->
-            </div>
+    </div>
         
         
 

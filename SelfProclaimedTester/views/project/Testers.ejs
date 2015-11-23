@@ -9,8 +9,9 @@
      <link rel = "stylesheet" href ="C:\Users\TEJA\Downloads\Compressed\bootstrap\css\bootstrap-rating.css"></link>
     <script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="C:\Users\TEJA\Downloads\Compressed\bootstrap\js\bootstrap.js"></script>
-    <script src="C:\Users\TEJA\Downloads\Compressed\bootstrap\js\ui-bootstrap-0.14.3.min.js"></script>
-    <script src="C:\Users\TEJA\Downloads\Compressed\bootstrap\js\bootstrap-rating-input.js"></script> -->
+    <script src="C:\Users\TEJA\Downloads\Compressed\bootstrap\js\ui-bootstrap-0.14.3.min.js"></script> -->
+    <script src="\js\bootstrap-rating-input.js"></script> 
+
 <style>
 
     .filled, .filled a {
@@ -25,7 +26,6 @@
 
 </style>
     
-<% include myProjectHeader %><br><br>
     <div class = "container">
     
         <div class = "row">
@@ -56,9 +56,9 @@
                 </td>
                  
             <td>
-           <a  role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-            <center>2</center>
-            </a>
+           <a ng-if = "true"  role="button" ng-click = "collapseClick(1)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+ 2
+</a>
                 </td>
                 
                 <td>
@@ -71,15 +71,13 @@
             </tr>
                     <tr >
                         <td colspan = "4" style = "border : none">
-                    <div class="collapse" id="collapseExample1">
+                    <div class="collapse" id="collapseExample" data-toggle="collapse">
                         <div class= "well" style = "background-color : aqua">
                             <table style = "background-color : aqua" class = "table">
                                 <thead>
-                                
                                     <th>Bug Id</th>
                                     <th>Bug Name</th>
                                     <th>Bug Description</th>
-                                
                                 </thead>
                             <tbody>
                                 <tr>
@@ -109,7 +107,7 @@ At w3schools.com you will learn how to make a website. We offer free tutorials i
                 </td>
                  
             <td>
-           <a  role="button" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+           <a  role="button" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
             Reported Bugs
             </a>
                 </td>
