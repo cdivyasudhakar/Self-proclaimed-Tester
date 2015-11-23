@@ -1,114 +1,8 @@
 app = angular.module('selfProclaimedTester',['ngRoute','ui.router']);
 
-/*app.config(['$routeProvider', function ($routeProvider) {
-
-	   $routeProvider
-	   
-	   .when('/test', {
-	         templateUrl : 'partials/test',
-	         controller : 'testController'
-	         
-	      })
-	      
-	      .when('/viewGroup/:name', {
-	         templateUrl : 'partials/viewGroup',
-	         controller : 'viewGroupController'
-	         
-	         
-	      })
-	      
-	      .when('/about', {
-	         templateUrl : 'partials/about',
-	         controller : 'aboutController'
-	         
-	      })
-	      
-	       .when('/createGroup', {
-	         templateUrl : 'partials/createGroup',
-	         
-	      })
-	      
-	      .when('/newsFeed', {
-	         templateUrl : 'partials/newsFeed',
-	         controller : 'newsFeedController'
-	         
-	      })
-	      
-	      .when('/testers', {
-	         templateUrl : 'partials/testers',
-	         controller : 'listTestersController'
-	      })
-	      
-	      .when('/dashboard', {
-	         templateUrl : 'partials/clientDashboard',
-	         controller : 'clientDashboardController'
-	      })
-	      
-	      .when('/', {
-	    	  
-	    	  templateUrl : 'clientHomePage',                            // This is for node understanding
-	    	  
-	      })
-	      .when('/profile', {
-	    	  
-	    	  templateUrl : 'partials/client_account'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/newproject', {
-	    	  
-	    	  templateUrl : 'partials/type_test'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/typeproduct', {
-	    	  
-	    	  templateUrl : 'partials/type_product'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/typeplatform', {
-	    	  
-	    	  templateUrl : 'partials/type_platform'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/typeplan', {
-	    	  
-	    	  templateUrl : 'partials/type_plan'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/contactus', {
-	    	  
-	    	  templateUrl : 'partials/contact'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/personal', {
-	    	  
-	    	  templateUrl : 'partials/personal'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/account', {
-	    	  
-	    	  templateUrl : 'partials/client_account'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/bugs', {
-	    	  
-	    	  templateUrl : 'partials/bugs'                            // This is for node understanding
-	    	  
-	      })
-	      .when('/', {
-	    	  
-	    	  templateUrl : 'partials/bugs'                            // This is for node understanding
-	    	  
-	      })
-	      
-	      .otherwise({redirectTo: "/"});
-	}]); */
-
-
-
-
 app.config([ '$urlRouterProvider', '$stateProvider',
       function($urlRouterProvider, $stateProvider) {
-         $urlRouterProvider.otherwise('/');
+         $urlRouterProvider.otherwise('/TestType');
          $stateProvider.state('approveRequests', {
             url : '/approveRequests',
             templateUrl : 'partials/approveRequests'
@@ -135,12 +29,13 @@ app.config([ '$urlRouterProvider', '$stateProvider',
               
            })
          .state('project',{
-             url:'/projectLayout/:projectId',
+             url:'/projectLayout',
              templateUrl:'project/projectLayout'
             })
             .state('project.dashboard',{
              url:'/dashboard',
-             templateUrl:'project/projectDashboard'
+             templateUrl:'project/projectDashboard',
+             params : {projectId : null }
             })
             .state('project.testers',{
              url:'/testers',
@@ -152,8 +47,8 @@ app.config([ '$urlRouterProvider', '$stateProvider',
             })
             .state('newProject',{
              url:'/newProject',
-             templateUrl:'newProject/newProject',
-             controller : 'newProjectController',
+             templateUrl:'newProject/newProject'
+             
             })
             .state('newProject.TestType',{
              url:'/TestType',
@@ -161,7 +56,8 @@ app.config([ '$urlRouterProvider', '$stateProvider',
             })
             .state('newProject.platform',{
              url:'/platform',
-             templateUrl:'newProject/type_platform'
+             templateUrl:'newProject/type_platform',
+             params : {product : null}
             })
             .state('newProject.product',{
              url:'/product',
@@ -170,6 +66,14 @@ app.config([ '$urlRouterProvider', '$stateProvider',
             .state('newProject.plan',{
              url:'/plan',
              templateUrl:'newProject/type_plan'
+            })
+            .state('account',{
+             url:'/account',
+             templateUrl:'partials/client_account'
+            })
+            .state('personal',{
+             url:'/personal',
+             templateUrl:'partials/personal'
             })
             
             

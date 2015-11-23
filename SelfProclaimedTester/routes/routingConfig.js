@@ -117,6 +117,34 @@ self.routeTable.push({
     	 })
      }
  });
+
+self.routeTable.push({
+    
+    requestType : 'post',
+    requestUrl : '/deleteDraft/:id',
+    callbackFunction : function (request, response) {
+   	
+   	 sql.deleteDraft(request.params.id, function(data){
+   		
+   		 response.send(data);
+   		 
+   	 })
+    }
+});
+
+self.routeTable.push({
+    
+    requestType : 'get',
+    requestUrl : '/getClientProjects/:id',
+    callbackFunction : function (request, response) {
+   	
+   	 sql.getDraft(request.params.id, function(data){
+   		
+   		 response.send(data);
+   		 
+   	 })
+    }
+});
 }
 
 module.exports = routeConfig;

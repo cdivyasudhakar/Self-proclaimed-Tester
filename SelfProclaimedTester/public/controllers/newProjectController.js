@@ -1,12 +1,8 @@
 app = angular.module('selfProclaimedTester');
-app.controller('newProjectController',['$scope','$http', '$state', '$location', '$window', '$timeout', function($scope, $http, $state, $location, $window, $timeout){
+app.controller('newProjectController',['$scope','$http', '$stateParams', '$location', '$window', '$timeout', function($scope, $http, $stateParams, $location, $window, $timeout){
 	
-	//get projects count
-	//if count == 0 $state.go("New Test Request Call")
-	//else 
-	
-	
-	$state.go("newProject.TestType");
+
+	console.log("Product : "+$stateParams.product);
 	
 	    
 	

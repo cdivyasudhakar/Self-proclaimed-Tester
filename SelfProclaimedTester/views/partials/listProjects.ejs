@@ -4,14 +4,14 @@
             
         <thead>
         <th><label>My Projects</label></th>
-			<th><a ui-sref="newProject"><button style = "float : right" class="btn btn-success">New Test Request</button></a></th>
+			<th><a ui-sref="newProject.TestType"><button style = "float : right" class="btn btn-success">New Test Request</button></a></th>
         </thead>
             <tbody>
                 
                 <tr ng-repeat = "project in createdProjects"> 
                     <td ng-if = "project.status == 'A'" style = "width : 78%">
                         <img style = "border: 3px solid;border-color : 2F4F4F; width : 60px; height : 60px;" src="/images/iphone.jpg" alt="..." class="img-circle">
-                        <a ui-sref = "project({projectId : project.projectId})">{{project.project_name}}</a><br>
+                        <a ui-sref = "project.dashboard({projectId : project.projectId})">{{project.project_name}}</a><br>
                         <label style = "width : 10%">status</label>Active</td>
                     <td ng-if = "project.status == 'D'" style = "width : 78%">{{project.project_name}}<br><label style = "width : 10%">status</label>Draft</td>
                     <td ng-if = "project.status == 'A'"><button style = "width : 100%" ng-click = "viewProject(project.projectId)" class = "btn btn-warning" type="button">View Project</button>&nbsp;</td>
