@@ -1,15 +1,6 @@
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
-<link rel='stylesheet' href='../stylesheets/style.css'/>
-</head>
-<title> Choose product </title>
+<div>
+	
+<link rel='stylesheet' href='.\stylesheets\style.css'/>	
 <script>
 
 function changecolor(i){
@@ -19,21 +10,51 @@ function changecolor(i){
 
 if(i==1)
 {
-document.getElementById("function").style.borderColor="#A1D490";
-document.getElementById("usability").style.borderColor="#FFA500";
+document.getElementById("website").style.borderColor="#A1D490";
+document.getElementById("android").style.borderColor="#FFA500";
+document.getElementById("iphone").style.borderColor="#FFA500";
+document.getElementById("windows").style.borderColor="#FFA500";
+document.getElementById("software").style.borderColor="#FFA500";
 }
-else
+else if(i==2)
 {
-document.getElementById("function").style.borderColor="#FFA500";
-document.getElementById("usability").style.borderColor="#A1D490";
+document.getElementById("website").style.borderColor="#FFA500";
+document.getElementById("android").style.borderColor="#A1D490";
+document.getElementById("iphone").style.borderColor="#FFA500";
+document.getElementById("windows").style.borderColor="#FFA500";
+document.getElementById("software").style.borderColor="#FFA500";
+}
+	
+else if(i==3)
+{
+document.getElementById("website").style.borderColor="#FFA500";
+document.getElementById("android").style.borderColor="#FFA500";
+document.getElementById("iphone").style.borderColor="#A1D490";
+document.getElementById("windows").style.borderColor="#FFA500";
+document.getElementById("software").style.borderColor="#FFA500";
 }
 
+else if(i==4)
+{
+document.getElementById("website").style.borderColor="#FFA500";
+document.getElementById("android").style.borderColor="#FFA500";
+document.getElementById("iphone").style.borderColor="#FFA500";
+document.getElementById("windows").style.borderColor="#A1D490";
+document.getElementById("software").style.borderColor="#FFA500";
+}
+else if(i==5)
+{
+document.getElementById("website").style.borderColor="#FFA500";
+document.getElementById("android").style.borderColor="#FFA500";
+document.getElementById("iphone").style.borderColor="#FFA500";
+document.getElementById("windows").style.borderColor="#FFA500";
+document.getElementById("software").style.borderColor="#A1D490";
+}
 }
 
 
 
 </script>
-<body>
 	
 <div class="container">
  <div class="row"> 
@@ -45,24 +66,23 @@ document.getElementById("usability").style.borderColor="#A1D490";
 <br><br><br>
 <h2> For what type of product?</h2>
 <br><br>
-<img src="../images/website.jpg" class="circle2" id="function" onclick="changecolor(1)">
+<img src="../images/website.jpg" class="circle2" id="website" onclick="changecolor(1)" ng-click="productselected('website')">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../images/android.jpg	" class="circle2" id="usability" onclick="changecolor(2)">
+<img src="../images/android.jpg	" class="circle2" id="android" onclick="changecolor(2)" ng-click="productselected('android')">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../images/iphone.jpg" class="circle2" id="usability" onclick="changecolor(2)">
+<img src="../images/iphone.jpg" class="circle2" id="iphone" onclick="changecolor(3)" ng-click="productselected('iphone')">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../images/window.png" class="circle2" id="usability" onclick="changecolor(2)">
+<img src="../images/window.png" class="circle2" id="windows" onclick="changecolor(4)" ng-click="productselected('windows')">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../images/software.jpg" class="circle2" id="usability" onclick="changecolor(2)">
+<img src="../images/software.jpg" class="circle2" id="software" onclick="changecolor(5)" ng-click="productselected('software')">
 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;
 <b>Website</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Android</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <b> Iphone </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Windows</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Software </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
 <br><br>
-<button type="button" class="btn btn-success btn-md">Save and Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+<button type="button" class="btn btn-success btn-md" ng-click="productcheck();">Save and Next <span class="glyphicon glyphicon-chevron-right"></span></button>
 </div>
  </div>
 </div>
 </div>
 
-</body>
-</html>
+</div>

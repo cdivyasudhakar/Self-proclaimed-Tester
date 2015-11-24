@@ -1,4 +1,4 @@
-app = angular.module('selfProclaimedTester',['ngRoute','ui.router']);
+app = angular.module('selfProclaimedTester',['ngRoute','ui.router','ngFileUpload']);
 
 app.config([ '$urlRouterProvider', '$stateProvider',
       function($urlRouterProvider, $stateProvider) {

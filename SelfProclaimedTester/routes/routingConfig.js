@@ -145,6 +145,47 @@ self.routeTable.push({
    	 })
     }
 });
+self.routeTable.push({
+    
+    requestType : 'post',
+    requestUrl : '/testupdate',
+    callbackFunction : function (request, response) {
+   	console.log('reached here');
+   	console.log(request.body);
+   	 sql.updatedraft(request.body, function(data){
+   		 response.send(data);
+   	 });
+   	 }
+    });
+self.routeTable.push({
+    
+    requestType : 'post',
+    requestUrl : '/upload',
+    callbackFunction : function (request, response) {
+   	console.log('reached upload section ');
+   	console.log(request.files);
+   	request.files.file.toFile('D:\\','hello.html',function(err,data)
+			{
+		if(!err)
+			console.log('please check file uploaded');
+});
+   	 }
+   	 });
+
+self.routeTable.push({
+    
+    requestType : 'post',
+    requestUrl : '/planupdate',
+    callbackFunction : function (request, response) {
+   	console.log('reached final plan update section ');
+   	console.log(request.body);
+   	//console.log(request.body.formdata);
+   	sql.completeproject(request.body,function(data){
+   		response.send(data);
+   	});
+   	 }
+   	 });
+    
 }
 
 module.exports = routeConfig;

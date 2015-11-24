@@ -11,6 +11,8 @@ var path = require('path');
 var session = require('client-sessions');
 var app = express();
 
+var nodefu  = require('nodefu');
+app.use(nodefu());
 // all environments
 app.use(session({   
 	  

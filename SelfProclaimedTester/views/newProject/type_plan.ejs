@@ -1,12 +1,13 @@
+<div>
 <h3 style="text-align: center">Lets build your Test plan </h3>
 <br><br>
 <div class="container">
  <div class="row"> 
  <div class="col-sm-4">
  <h4>What is the name of this wonderful project?</h4><br>
- <input type="text" class="form-control" placeholder="Project Name" id="projectName"><br>
+ <input type="text" class="form-control" placeholder="Project Name" id="projectName" ng-model="formdata.my_project_name"><br>
 <h4>Please provide the URL to be tested</h4><br>
- <input type="text" class="form-control" placeholder="http://domain.com" id="url">
+ <input type="text" class="form-control" placeholder="http://domain.com" id="url" ng-model="formdata.my_url">
  </div>
  <div class="col-sm-4">
 <h4>Does the product require a username or password to be accessed?</h4>
@@ -16,19 +17,24 @@
 	<div class="radio">
       <label><input type="radio" name="optradio">Yes, here they are:</label><br><br>
     </div>
-	<input type="text" class="form-control" placeholder="Username" id="username"> <br>
-	<input type="password" class="form-control" placeholder="Password" id="username"> <br>
+	<input type="text" class="form-control" placeholder="Username" id="username" ng-model="formdata.my_app_username"> <br>
+	<input type="password" class="form-control" placeholder="Password" id="username" ng-model="formdata.my_app_password"> <br>
 	<br><br><br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<button type="button" class="btn btn-success btn-md">Save and Next <span class="glyphicon glyphicon-chevron-right"></span></button>
+	<button type="button" class="btn btn-success btn-md" ng-click="uploadPic(picFile)" >Save and Go <span class="glyphicon glyphicon-chevron-right"></span></button>
  </div>
  <div class="col-sm-4">
  <h4> Please provide Project Description </h4>
- <textarea class="form-control" rows="4" id="projectDesc" placeholder="A brief idea"></textarea><br>	
+ <textarea class="form-control" rows="4" id="projectDesc" placeholder="A brief idea" ng-model="formdata.my_description"></textarea><br>	
  <h4 style="text-align: center"> Upload User Manual </h4><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-cloud-upload"></span> Choose a file</button>
+<input type="file" ngf-select ng-model="picFile" name="file"    
+             accept="image/*" ngf-max-size="2MB" required>
+      <i ng-show="myForm.file.$error.required">*required</i><br>
+      <i ng-show="myForm.file.$error.maxSize">File too large 
+          {{picFile.size / 1000000|number:1}}MB: max 2M</i>
  
  </div>
  
  </div>
  </div>
+</div>

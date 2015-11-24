@@ -38,12 +38,12 @@ document.getElementById("usability").style.borderColor="#A1D490";
 <br><br><br>
 <h2> What types of test are you looking for?</h2>
 <br><br>
-<img src=".\images\function.png" class="circle" id="function" onclick="changecolor(1)">
+<img src=".\images\function.png" class="circle" id="function" onclick="changecolor(1)" ng-click="typeselected('functional');">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src=".\images\usability.png" class="circle" id="usability" onclick="changecolor(2)">
+<img src=".\images\usability.png" class="circle" id="usability" onclick="changecolor(2)" ng-click="typeselected('usability');">
 <br><br>
 <b>Functional Testing</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Usability Testing</b><br><br>
-<button type="button" class="btn btn-primary btn-md">Next </button>
+	<button type="button" class="btn btn-success btn-md" ng-click="type();">Save and Next <span class="glyphicon glyphicon-chevron-right"></span></button>
 </div>
  </div>
 </div>
