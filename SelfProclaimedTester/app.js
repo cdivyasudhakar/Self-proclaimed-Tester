@@ -19,7 +19,7 @@ app.use(session({
 	cookieName: 'session',    
 	secret: 'cmpe273_test_string',    
 	duration: 30 * 60 * 1000,    
-	activeDuration: 5 * 60 * 1000,  }));
+	activeDuration: 5 * 60 * 1000  }));
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -35,6 +35,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+
+app.get('/', require('./routes/index').index);
 
 app.get('/users', user.list);
 var pageRoute = require('./routes/routingConfig.js');
