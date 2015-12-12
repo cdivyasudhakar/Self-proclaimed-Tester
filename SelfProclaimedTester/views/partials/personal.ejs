@@ -1,4 +1,4 @@
-<html>
+<!--<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,7 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
 <title> Personal</title>
-<body>
+<body> -->
 	<div style="background-color : #2F4F4F">
 <nav class="navbar navbar-default">
 	<div style="background-color : #2F4F4F">
@@ -29,28 +29,27 @@
 <br>
 <h3 style="text-align: center">Edit your settings</h3>
 <br><br>
-<div class="container">
+<div class="container" ng-controller = "myProfileController">
  <div class="row"> 
  <div class="col-sm-6">
  <h5><b>First Name</b></h5>
  <div class="well well-sm">
- <input id="fname" name="name" type="text" placeholder="Enter First Name" class="form-control"></div>
+ <input id="fname" name="name" type="text" placeholder="Enter First Name" ng-model = "client.first_name" class="form-control"></div>
  <h5><b>Organization Name</b></h5>
  <div class="well well-sm">
- <input id="fname" name="name" type="text" placeholder="Enter organization Name" class="form-control">
+ <input id="organization" name="name" type="text" placeholder="Enter organization Name" ng-model = "client.organization_name" class="form-control">
  </div>
  </div>
- 
  <div class="col-sm-6">
  <h5><b>Last Name</b></h5>
  <div class="well well-sm">
- <input id="fname" name="name" type="text" placeholder="Enter Last Name" class="form-control"></div>
+ <input id="lname" name="name" type="text" placeholder="Enter Last Name" ng-model = "client.last_name" class="form-control"></div>
  <h5><b>Email Id</b></h5>
  <div class="well well-sm">
- <input id="fname" name="name" type="text" placeholder="Enter Email id" class="form-control">
+ <input id="email" name="name" type="text" placeholder="Enter Email id" ng-model = "client.email" class="form-control">
  </div>
  </div>
  
   <div class="col-md-12 text-center">
- <button type="submit" class="btn btn-success btn-lg">Update</button>
+ <button type="submit" ng-click = "updateProfile(client)" class="btn btn-success btn-lg">Update</button>
  </div>

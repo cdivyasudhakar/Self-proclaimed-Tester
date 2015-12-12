@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular-route.min.js"></script>
+
+<title> Choose environment(s) </title>
+<body>
+<div class="container">
+    <div class="row">
+	<br><br>
+	<h3 style="text-align:center">Choose your environment(s).</h3><br>
+	<div class="col-sm-12" style="left:35%">
+	 <select data-ng-model="product" style="width:250px" data-ng-options="option for option in products" data-ng-change="getplatforms()">
+    </select>
+		<br><br>
+    <select data-ng-model="platform_selected" style="width:250px" data-ng-options="option for option in platforms" data-ng-show='platforms.length'>
+    </select>
+	<br><br>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <button type="submit" class="btn btn-success btn-md" ng-click="addpreference()">Register</button> <br><br>
+  </div>
+  <br><br><br>
+  <h3 style="text-align:center">Your Registered environment(s) </h3><br><br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Platform</th>
+        <th>Delete?</th>
+      </tr>
+    </thead>
+    <tbody>
+		  <tr ng-repeat="x in skills track by $index">
+     <td>{{x.product}}</td>
+    <td>{{ x.platform }}</td>
+        <td><button class="btn btn-default">
+    <span class="glyphicon glyphicon-trash" style="vertical-align:middle ;color:red" ng-click="deletepreference($index)"></span>
+  </button></td>
+  </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+<div class="col-md-12 text-center">
+
+</div>
+</div>
+</body>
+</html>

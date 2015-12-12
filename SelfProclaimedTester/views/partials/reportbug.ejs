@@ -1,0 +1,18 @@
+<div class="modal-header">
+            <h3 class="modal-title" style="text-align:center">Report a Bug</h3>
+        </div>
+        <div class="modal-body">
+			
+				<input type="text" class="form-control" id="usr" placeholder="Bug Name" ng-model="bugname"><br>
+		<input type="text" class="form-control" id="usr" placeholder="Bug Description" ng-model="bugdesc"><br>
+		<textarea class="form-control" rows="5" columns="4" id="comment" placeholder="Steps to reproduce" ng-model="reproduce"></textarea> <br>
+	<select class="form-control" ng-model="severity" placeholder="Choose severity of bug">
+    <option value="low" ng-model="low">low</option>
+    <option value="medium" ng-model+"medium">Medium</option>
+    <option value="high" ng-model="high">High</option>
+			</select>
+</div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="postreport()">Report</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>

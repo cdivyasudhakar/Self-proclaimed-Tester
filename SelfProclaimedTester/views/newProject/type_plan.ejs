@@ -21,17 +21,23 @@
 	<input type="password" class="form-control" placeholder="Password" id="username" ng-model="formdata.my_app_password"> <br>
 	<br><br><br>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<button type="button" class="btn btn-success btn-md" ng-click="uploadPic(picFile)" >Save and Go <span class="glyphicon glyphicon-chevron-right"></span></button>
+	<button type="button" class="btn btn-success btn-md" ng-click="uploadPic(picFile)" >Finish <span class="glyphicon glyphicon-chevron-right"></span></button>
+	 
+	 
  </div>
+
  <div class="col-sm-4">
  <h4> Please provide Project Description </h4>
  <textarea class="form-control" rows="4" id="projectDesc" placeholder="A brief idea" ng-model="formdata.my_description"></textarea><br>	
  <h4 style="text-align: center"> Upload User Manual </h4><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="file" ngf-select ng-model="picFile" name="file"    
-             accept="image/*" ngf-max-size="2MB" required>
+	 
+
+<input type="file" class="btn btn-primary btn-file" ngf-select ng-model="picFile" name="file"    
+             accept="*" ngf-max-size="2MB" required>
       <i ng-show="myForm.file.$error.required">*required</i><br>
       <i ng-show="myForm.file.$error.maxSize">File too large 
           {{picFile.size / 1000000|number:1}}MB: max 2M</i>
+	 
  
  </div>
  

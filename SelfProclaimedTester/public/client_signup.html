@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Client Sign Up</title>
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/style1.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+        <script src = "https://code.angularjs.org/1.5.0-beta.1/angular-route.min.js"></script>
+        <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+        <script src = "/js/angular-morris-chart.min.js"></script>
+        <script src = "/controllers/appRoute.js"></script>
+    <script src = "/controllers/loginController.js"></script>
+</head>
+    <body style = "background-color : #CCCCCC" ng-app = "selfProclaimedTester" ng-controller = "loginController">
+<nav style = "background-color : #15C5C3" class="1avbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <img  src="/images/bug.png" alt="Smiley face" width="60" height="60">
+        <span style = "color : #00f; font-family: comic sans ms;font-size : 28px;">Self <span style = "color : #ECE4D9">Proclaimed</span> Tester</span>
+        
+             <ul class="nav navbar-nav navbar-right"> 
+                <li class="dropdown">
+                    <a href="index"><span style="color : #00f">Home</span></a>
+                </li>
+                    <li class="dropdown">
+                        <a href="about.html" class="dropdown-toggle" data-toggle="dropdown"><span style="color : #00f">About us</span></a>
+                    </li>
+                <li>
+                    <a href="contact.html"><span style="color : #00f">Contact us</span></a>
+                </li>
+            </ul>
+         
+     
+  </div>
+    </nav><br><br>
+    
+<section id="contact">
+
+      <div class="container">
+          <div class="col-md-12"> <h3>Client Signup!</h3><br></div>
+        <div class="row">
+          <div class="col-md-4">
+            <form>
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" ng-model="signup.firstname"class="form-control" placeholder="Enter Name">
+              </div>
+                <div class="form-group">
+                <label> Last Name </label>
+                    <input type="text" ng-model="signup.lastname" class="form-control" placeholder="Enter Last Name"></div>
+              <div class="form-group">
+                  <label>Password</label>
+                <input type="password" ng-model="signup.password" class="form-control" placeholder="Enter Password">
+              </div>
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" ng-model="signup.confirmPassword" class="form-control" placeholder="Confirm Password">
+              </div>
+            
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" ng-model="signup.email" placeholder="Enter Email">
+              </div>
+                <div class="form-group">
+                <label>Organization</label>
+                <input type="text" class="form-control" ng-model="signup.organization" placeholder="Enter Email">
+              </div>
+             <div class="form-group">
+                <label>Designation</label>
+                <input type="number" class="form-control"  ng-model="signup.contact" placeholder="Enter mobile">
+              </div>
+              <button type="submit" class="btn btn-success" ng-click="clientSignup(signup)">Sign Up</button>
+                <button type="submit" class="btn btn-failure" ng-click="signup_button">Cancel</button>
+                <br>
+            </form>
+          </div>
+            <div class="col-md-2"></div>
+            <br> <br>
+          <div class="col-md-5">
+            <img src="/images/slider4.jpg" class="demo">
+          </div>   
+        </div>
+      </div>
+    </section>
+<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-xs-12">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <p>Copyright &copy; 2015, All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages:['corechart',"corechart"]});
+      google.setOnLoadCallback(function() {
+  angular.bootstrap(document.body, ['testerdashboard']);
+});
+    </script>
+	
+ 
+    <!-- <div id="chart_div" style="width: 900px; height: 500px;"></div> -->
+	<!--<div ng-controller="MyCtrl1" id="chartline"  style="width: 450px; height: 450px;"></div>-->
+	  <div class="row">
+		  <div class="col-md-6">
+	<div  id="chartpie"></div>
+			  </div>
+		  <div class="col-md-6">
+	  <div  id="totalBugs"></div>
+		  </div>
+	  </div>
+		  	   <div class="row">
+				   <div class="col-md-6">
+			   <br><br>
+					   <div style="background-color:white">
+	<div style="text-align:center; background-color:white"><b>Credits</b></div>
+	<div  style="text-align:center; height:160px"id="donut-example">
+					   
+					   
+					   </div> 
+						   </div>
+	
+			  </div> <br><br>
+				   <div>
+				   <div class="col-md-6" style="background-color:white">
+				   <div style="background-color:white">
+				   <div style="text-align:center"><b>Efficiency of Bugs Reported </b></div>
+				   <br>	
+		  <div style="text-align:center;padding:10px" class="col-md-6" id="efficiency">
+		  
+		  
+		  </div>
+					   </div>
+			   </div>
+					   </div>
+</div>
+	  
+ 

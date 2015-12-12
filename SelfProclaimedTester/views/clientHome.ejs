@@ -1,3 +1,4 @@
+
 <html>
     <head>
     <!-- Latest compiled and minified CSS -->
@@ -11,17 +12,25 @@
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
         <script src = "https://code.angularjs.org/1.5.0-beta.1/angular-route.min.js"></script>
         <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+        <script src="/js/ng-file-upload.js	"></script>
          <script src = "../controllers/appRoute.js"></script>
-        
+        <script src = "../controllers/clientController.js"></script>
         <script src = "../controllers/projectController.js"></script>
         <script src = "../controllers/newProjectController.js"></script>
-		<script src="../controllers/ng-file-upload.js	"></script>
-        <script src = "../controllers/clientController.js"></script>
+        <script src="../controllers/myProfileController.js"></script>
+         <script src = "../controllers/bugsController.js"></script>
+        <script src = "../js/angular-morris-chart.min.js"></script>
+        <script src="../js/angular-input-stars.js"></script> 
+        <link rel ="stylesheet" href = "../stylesheets/angular-input-stars.css">
+        
+        <script src = "https://code.angularjs.org/1.4.7/angular-cookies.min.js"></script>
     </head>
     
-    <body style = "background-color : #F0EBD5" ng-app = "selfProclaimedTester" ng-controller = "clientController">
+    <body style = "background-color : #F0EBD5" ng-app = "selfProclaimedTester">
        <nav style = "background-color : #2F4F4F" class="1avbar navbar-default navbar-fixed-top">
   <div class="container">
       <form class = "navbar-form navbar-right"> 
@@ -49,14 +58,14 @@
         </ul>
         </div>
         
-     <div class = "container">
+     <div class = "container" >
         
         
        
     </div>
         <hr>
         
-            <div class = "container">
+            <div class = "container" ng-controller = "clientController">
             <div ui-view>
             
             

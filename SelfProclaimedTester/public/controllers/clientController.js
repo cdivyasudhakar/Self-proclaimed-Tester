@@ -1,9 +1,13 @@
 app = angular.module('selfProclaimedTester');
-app.controller('clientController',['$scope','$http', '$state', '$location', '$window', '$timeout', function($scope, $http, $state, $location, $window, $timeout){
+app.controller('clientController',['$scope','$http', '$state', '$location', '$window', '$timeout','appService', function($scope, $http, $state, $location, $window, $timeout, appService){
+
 	
-	//get projects count
-	//if count == 0 $state.go("New Test Request Call")
-	//else 
+	
+	clearInterval(appService.getIntervalId());
+
+	
+	
+	
 	
 	$http.get('/getClientProjects').success(function(response){
 		
@@ -13,15 +17,17 @@ app.controller('clientController',['$scope','$http', '$state', '$location', '$wi
 			
 		}
 		else{
-			
-			$state.go("newProject.TestType");
+			$http.post('/createProject').success(function(response){
+				//{"TestType":"","product":"","platforms_selected" :[]}
+				$state.go("newProject.TestType", {projectId : response.message});
+			})
 		}
 		
-	});
+	}); 
+
+	$scope.viewProject = function(projectId, end_date){
 	
-	$scope.viewProject = function(projectId){
-		
-		$state.go('project',{'projectId' : projectId});
+		$state.go('project.dashboard',{'projectId' : projectId, 'end_date' : end_date});
 	}
 	
 	$scope.deleteDraft = function(projectId){
@@ -36,7 +42,15 @@ app.controller('clientController',['$scope','$http', '$state', '$location', '$wi
 	    		
 	    })
 	}
-	
+	$scope.newtest=function()
+	{
+		
+		$http.post('/createProject').success(function(response){
+			//{"TestType":"","product":"","platforms_selected" :[]}
+			$state.go("newProject.TestType", {projectId : response.message});
+		});
+		
+	};
 	$scope.completeDraft = function(projectId){
 		
 		
@@ -50,22 +64,26 @@ app.controller('clientController',['$scope','$http', '$state', '$location', '$wi
 	
 		$http.get('/getClientProjects/'+projectId).success(function(response){
 			
+			console.log(response);
 			if( response.status == 200)
 				
 				attributes = JSON.parse(response.data.project_attributes);
 			
 				if(attributes.TestType == "")
-					$state.go('newProject.TestType');
+					$state.go('newProject.TestType', {projectId : projectId});
 				else if(attributes.product == "")
-					$state.go('newProject.product');
-				else if(attributes.preferences.length == 0){
-					$state.go('newProject.platform',{product : attributes.product});
+					$state.go('newProject.product', {projectId : projectId});
+				else if(attributes.platforms_selected.length  == 0){
+					console.log("I m here "+attributes.product)
+					$state.go('newProject.platform',{product : attributes.product, projectId : projectId});
 				}
 			
 			
 		}); 
 		
-	}
+		
+		
+	};
 	
 	
 }]);

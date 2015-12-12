@@ -1,0 +1,11 @@
+ 
+		  <div ng-repeat="x in relevant track by $index">
+    Project Name : {{x.project_name}} <br> <br>
+     Project Description : {{ x.description }}<br> <br>
+	 Project End Date : {{ x.posted_date }}  <br> <br>
+        <button ng-click="addtointerested($index)" class="btn btn-success center-block" align="middle"> 
+    <span class="glyphicon glyphicon-ok" style="vertical-align:middle ;color:Green" ></span> Add to interested
+  </button>
+			  <hr>
+  </div>
+      

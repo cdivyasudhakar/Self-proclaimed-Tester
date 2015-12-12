@@ -1,25 +1,175 @@
+<script src="/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/sweetalert.css">
 
-<div ng-controller = "listProjectsController">
-<table class = "table">
+<style>
+
+.borderless {
+ border:none;
+}
+    .glyphicon-star{
+    font-size: 30px;
+    color : #FFDF00;
+}
+    .glyphicon-star-empty{
+    font-size: 30px;
+    color : #00000;
+}
+
+</style>
+
+<div ng-controller = "bugsController">
+    
+<table class = "table table-hover">
             
-        <thead>
-        <th><label>My Projects</label></th>
-			<th><a href="#/newproject"><button style = "float : right" class="btn btn-success">New Test Request</button></a></th>
-        </thead>
-            <tbody>
-                <tr>
-                    <td style = "width : 78%"><a href = "#dashboard">Project Name</a><br>status</td>
-                <td ><button style = "float : right" class = "btn btn-primary" type="button">Complete draft</button>&nbsp;
-                <button style = "float : left" class = "btn btn-danger" type="button">Delete draft</button></td>&nbsp;
-                </tr>
-               <tr>
-                    <td style = "width : 78%">Project Name</td>
-                <td ><button style = "float : right" class = "btn btn-primary" type="button">Complete draft</button>&nbsp;
-                <button style = "float : left" class = "btn btn-danger" type="button">Delete draft</button></td>&nbsp;
-                </tr>
-                <tr>
-            
-            </tbody>
+            <thead>
+                    <th style ="text-align : center">Bug Id</th>
+                    <th style ="text-align : center">Bug Name</th>
+                    <th style ="text-align : center">raised by</th>
+                    <th style ="text-align : center">severity</th>
+                    <th style ="text-align : center">status</th>
+                    <th style = "text-align : center">feedback</th>
+            </thead>
+    
+                <tbody>
+                    <tr ng-repeat = "bug in bugs">
+                        <td style ="text-align : center"><button type="button" class="btn btn-info btn-sm" ng-click = "modalData(bug)" data-toggle="modal" data-target="#myModal">{{bug.bug_id}}</button></td>
+                        <td style ="text-align : center">{{bug.bug_name}}</td>
+                        <td style ="text-align : center">{{bug.first_name}} &nbsp; {{bug.last_name}}</td>
+                        <td style ="text-align : center"><select ng-disabled = "bug.status !=0" ng-options ="severity for severity in severities" ng-model = "bug.severity" ng-selected = "bug.severity" </td>
+                        <td ng-if = "bug.status ==0" style ="text-align : center"><div class="btn-group">
+  <button type="button" style = "size : 50px" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#" data-toggle="modal" data-target="#myModal1" ng-click = "actionModal(0, bug)">Approve</a></li>
+    <li><a href="#" data-toggle="modal" data-target="#myModal1" ng-click = "actionModal(1, bug)">Reject</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#" data-toggle="modal" data-target="#myModal1" ng-click = "actionModal(2, bug)">Close</a></li>
+  </ul>
+</div></td>
+                        <td ng-if = "bug.status ==1" style ="text-align : center"><span style="color:green; font-size : 20px" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                        <td ng-if = "bug.status ==2" style ="text-align : center"><span style="color:red; font-size : 20px" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                        <td ng-if = "bug.status ==3" style ="text-align : center"><span class="label label-danger" >Closed</span></td>
+                        <td  style = "text-align : center"> <button ng-if = "bug.status == 1|| bug.status == 2 || bug.status == 3" uib-popover="{{bug.feedback}}" popover-trigger="mouseenter" type="button" class="btn btn-default">feedback</button></td> 
+                    </tr>
+    
+                </tbody>
     </table> 
     
+
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{bugData.bug_name}}</h4>
+      </div>
+      <div class="modal-body">
+          <table class = "table borderless">
+        
+          <tr>
+              <td style = "border : none">Bug Id</td>
+              <td style = "border : none">{{bugData.bug_id}}</td>
+          </tr>
+          <tr >
+              <td style = "border : none">Bug Name</td>
+              <td style = "border : none">{{bugData.bug_name}}</td>
+          </tr>
+          <tr>
+              <td style = "border : none">Description</td>
+              <td style = "border : none">{{bugData.description}}</td>
+          </tr>
+          <tr>
+              <td style = "border : none">Steps to Produce</td>
+              <td style = "border : none">{{bugData.steps_to_produce}}</td>
+          </tr>
+          <tr>
+              <td style = "border : none">Severity</td>
+              <td style = "border : none">{{bugData.severity}}</td>
+          </tr>
+          
+          
+          </table><br>
+          
+          <hr>
+          <label>COMMENTS</label><br><br>
+          <div ng-if = "bugData.status ==0" class="form-group">
+  <label for="comment">Add Comment</label>
+  <textarea class="form-control" rows="5" ng-model = "cmt" id="comment"></textarea><br>
+  <button style = "float : right" ng-click = "addComment(cmt, bugData.bug_id)" class = "btn btn-primary">Send</button><br><br>
 </div>
+          
+          <div style = "height : 250px;overflow-y : scroll">
+          <div ng-repeat = "comment in comments">
+              
+              
+              <div  class = "well" ng-if = "comment.role == 'tester'">
+              
+                <label style = "width : 71%">{{comment.name}}</label>{{comment.timestamp}}<br>
+                <p>{{comment.description}}</p>
+                  </div>
+              
+              <div  class = "well" ng-if = "comment.role == 'client'">
+              
+                <label style = "width : 71%">You</label>{{comment.timestamp}}<br>
+                <p>{{comment.description}}</p>
+                  </div>
+          </div>
+                        <div>
+
+      </div>
+              </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    
+
+  </div>
+</div>
+</div>
+    </div>      
+    
+    
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+           
+            <table class = "table">
+            <tr ng-if = "showRating">
+                <td>Rating</td>
+                <td> <uib-rating ng-model="current.rating"  max="5" state-on="'glyphicon glyphicon-star'" state-off="'glyphicon glyphicon-star-empty'" aria-labelledby="custom-icons-1"></uib-rating></td>
+            </tr>
+            <tr>
+                <td>feedback</td>
+                <td><div class="form-group">
+    
+  <textarea ng-model = "current.feedback" class="form-control" rows="5" id="comment"></textarea>
+</div></td>
+            </tr>
+                <tr ng-if = "approve">
+                <td>credits</td>
+                <td><input type = "text" ng-model = "current.credits" maxlength = "2" style = "width : 40px" class = "form-control"></td>
+                
+                </tr>
+            </table>
+           
+        </div>
+        <div class="modal-footer">
+          <button ng-if = "approve" type="button" class="btn btn-default" ng-click = "approveBug(current)" data-dismiss="modal">Approve</button>
+          <button ng-if = "reject" type="button" class="btn btn-default" ng-click = "rejectBug(current)" data-dismiss="modal">Reject</button>
+            <button ng-if = "closeTheBug" type="button" class="btn btn-default" ng-click = "closeBug(current)" data-dismiss="modal">Close Bug</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    

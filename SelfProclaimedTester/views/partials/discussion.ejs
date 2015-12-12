@@ -1,0 +1,29 @@
+<div class="modal-header">
+            <h3 class="modal-title">Information about Bug</h3>
+        </div>
+        <div class="modal-body">
+         
+         Name of bug filed is  : {{bugdetails.bug_name}} <br><br>
+			
+		 Description of Bug : {{bugdetails.description}} <br><br>
+			
+		Severity of Bug : {{bugdetails.severity}} <br><br>
+			
+			Steps to Reproduce : {{bugdetails.steps_to_produce}} <br><br>
+			
+			<div ng-repeat="comment in comments">
+			<div class="well">	
+			<b ng-if = "comment.role == 'tester'">You</b> <br>
+            <b ng-if = "comment.role == 'client'">{{comment.name}}</b> <br>
+			{{comment.description}}
+			</div>	
+			</div>
+			
+			<textarea class="form-control" rows="5" columns="3" id="comment" ng-model="comment" placeholder="Put a comment to Client"></textarea>
+			
+			
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="postedcomment()">Comment</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>

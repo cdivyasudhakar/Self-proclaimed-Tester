@@ -1,0 +1,90 @@
+<style>
+
+    .glyphicon-star{
+    font-size: 30px;
+    color : #FFDF00;
+}
+    .glyphicon-star-empty{
+    font-size: 30px;
+    color : #00000;
+}
+</style>
+
+<div ng-repeat="proj in myprojects">
+	<div class="row">
+
+	<div class="col-md-4">
+
+
+<br>
+	Project Name is : <b> {{ proj.project_name}} </b> <br><br>
+	Project description is :<br> <b>{{ proj.description}} </b><br><br>
+	Url for the project is : <a><b>{{ proj.url}} </b></a><br><br>
+	Project End Date:<b> {{ proj.end_date}} </b><br><br>
+	Access UserName : <b>{{proj.app_username}}    </b><br><br>
+    Access Password : <b> {{proj.app_password}}   </b><br> <br>
+		Download User Manual for Project : <a href="../files/{{proj.projectId}}.docx" download>Click Here </a> <br>	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+	</div>
+
+
+
+
+
+	<div class="col-md-6">
+	
+<h4 style="text-align:center">Reported Bugs</h4><br>
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button type="button" class="btn btn-primary btn-sm center" ng-click="getbugs(proj.projectId)" >Show my bugs</button>	<br><br>
+			
+		<table class="table table-striped">
+		<tr>
+            <th>Bug Name</th>
+			<th></th>
+            <th>Status</th>
+          <th>Feedback</th>
+        </tr>
+  <tr ng-repeat="bugs in projectbugs">
+    <td><div ng-if="bugs.project_id==proj.projectId"><button ng-click="open(bugs.bug_id)" class="btn btn-xs btn-info"><b>{{bugs.bug_name}}</b></button></div></td>
+	  <td></td>
+	  
+	 <td>  <div ng-if="bugs.project_id==proj.projectId"><div ng-if="bugs.status==0">Pending Approval</div>  <div ng-if="bugs.status==1">Approved</div> </div></td>
+	  <td> <div ng-if="bugs.project_id==proj.projectId"><button ng-if = "bugs.status == 0||bugs.status == 1|| bugs.status == 2 || bugs.status == 3" uib-popover="{{bugs.feedback}}" popover-trigger="mouseenter" type="button" class="btn btn-default">feedback</button>
+		  </div> </td>
+  </tr>
+</table>
+	
+		</div>
+		
+		
+		
+
+	
+	<div class="col-md-2">
+	&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br><br><br>
+      <button type="button" class="btn btn-info btn-lg center-block" ng-click="reportbug(proj.projectId)">Report a bug</button>	
+		</div>
+	</div>
+<hr>
+	</div>
+	
+	<br>
+<hr>	
+</div>
+ <div class="modal fade" id="report" role="dialog">
+    <div class="modal-dialog">
+<div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Reported a bug successfully !!!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="modalpressed()">Close</button>
+        </div>
+      </div>
+	 </div></div>
+    
